@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Biodata</title>
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Panel 1: Intro (Sunset Boat) -->
+    <section class="panel drawer-panel" id="panel-1">
+        <div class="img-container">
+            <div class="background-image bg-panel-1"></div>
+        </div>
+        <div class="blur-overlay dark"></div>
+        <div class="content intro-content dark-text-container">
+            <!-- Using standard dummy name, user will swap to real name -->
+            <h1 class="heading" aria-label="First Name">Hey, I'm Raajesh</h1>
+            <p class="subheading">Navigating life with a calm sunset vibe. Looking for my permanent co-captain.</p>
+            <div class="scroll-instruction">
+                <p>Scroll down</p>
+                <div class="line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panel 2: About Me (Plaid Shirt) -->
+    <section class="panel drawer-panel" id="panel-2">
+        <div class="img-container">
+            <div class="background-image bg-panel-2"></div>
+        </div>
+        <!-- Medium blur so text is readable but face stays visible -->
+        <div class="blur-overlay dark less-blur-gradient"></div>
+        <div class="content split-drawer dark-text-container">
+            <div class="text-container">
+                <h2 class="title text-move-left">The Real Me</h2>
+                <div class="description text-move-right">
+                    <p>I don't smoke and I don't drink. I believe the best buzz comes from deep conversations and
+                        genuine connection.</p>
+                    <p>I am highly career-focused and driven during the day, but I always know how to keep things fun,
+                        interesting, and peaceful when it counts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panel 3: Lifestyle & Contact (Stadium) -->
+    <section class="panel drawer-panel" id="panel-3">
+        <div class="img-container">
+            <div class="background-image bg-panel-3"></div>
+        </div>
+        <!-- Minimal/No blur so stadium is transparent -->
+        <div class="blur-overlay dark minimal-blur-gradient full-height"></div>
+        <div class="content center-drawer dark-text-container">
+            <div class="social-wrapper">
+                <h2 class="title text-move-left" style="font-size: clamp(2.5rem, 5vw, 3.5rem);">Let's Connect</h2>
+                <p class="subtitle text-move-right" style="margin-bottom: 2rem; font-size: 1.1rem; text-align: center;">
+                    If you think we'd vibe, don't keep me waiting.</p>
+
+                <div class="social-buttons text-move-up">
+                    <!-- WhatsApp: Opens chat with pre-filled message -->
+                    <a href="https://wa.me/919566874940?text=Hey!%20I%20saw%20your%20biodata...%20and%20honestly,%20I'm%20intrigued.%20%F0%9F%98%89"
+                        class="social-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/ramboo_raajesh" class="social-btn instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> Slide into DMs
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/raajeshn/" class="social-btn linkedin" target="_blank">
+                        <i class="fab fa-linkedin-in"></i> Let's be professional
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GSAP / ScrollTrigger Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

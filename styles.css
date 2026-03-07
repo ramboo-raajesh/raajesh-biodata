@@ -1,0 +1,328 @@
+/* CSS Reset & Biodata Variables */
+:root {
+    --primary-color: #fcfbf9; /* Soft off-white */
+    --secondary-color: #eaddcf; /* Warm beige */
+    --accent-color: #8b5a2b; /* Elegant brown/bronze */
+    --text-dark: #2c2925;
+    --text-light: #fcfcfc;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Social Colors */
+    --whatsapp: #25D366;
+    --instagram: #E1306C;
+    --linkedin: #0077b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    /* No restricted height, let the native vertical scrolling handle it */
+    font-family: var(--font-body);
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Explicitly target all webkit scrollbar pseudo-elements to nuke them */
+::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background: transparent !important;
+    color: transparent !important;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* Vertical Sticky Drawers */
+.drawer-panel {
+    /* Magic property for vertical drawer effect */
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* Drop shadow creates the drawer depth illusion as it slides over the previous panel */
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.4); 
+}
+
+/* Absolute Positioning for Background Images */
+.img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    /* Transform origin for zoom effects */
+    transform-origin: center center;
+    will-change: transform;
+}
+
+.bg-panel-1 {
+    background-image: url('assets/biodata_intro.jpg');
+    background-position: center 60%;
+}
+
+.bg-panel-2 {
+    background-image: url('assets/biodata_about.jpg');
+    background-position: center 30%;
+}
+
+.bg-panel-3 {
+    background-image: url('assets/biodata_lifestyle.jpg');
+    background-position: center top;
+}
+
+/* Glassmorphism Blur overlay at the bottom */
+.blur-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Covers the bottom 60% of the screen by default */
+    height: 60%; 
+    z-index: 2;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* mask-image helps blend the blur smoothly into the clear top image */
+    mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    opacity: 0; /* Animated in via GSAP */
+}
+
+.blur-overlay.full-height {
+    height: 100%;
+}
+
+.blur-overlay.light {
+    background: linear-gradient(to top, rgba(252,251,249,0.95) 0%, rgba(252,251,249,0.5) 70%, rgba(252,251,249,0) 100%);
+}
+
+.blur-overlay.dark {
+    background: linear-gradient(to top, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.6) 70%, rgba(20,20,20,0) 100%);
+}
+
+/* Medium reduced blur for Panel 2 */
+.blur-overlay.dark.less-blur-gradient {
+    /* Lower opacity gradient for deeper transparency */
+    background: linear-gradient(to top, rgba(20,20,20,0.5) 0%, rgba(20,20,20,0.2) 70%, rgba(20,20,20,0) 100%);
+    /* Very weak backdrop filter */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Minimal/No blur for Panel 3 */
+.blur-overlay.dark.minimal-blur-gradient {
+    background: linear-gradient(to top, rgba(20,20,20,0.3) 0%, rgba(20,20,20,0) 70%, rgba(20,20,20,0) 100%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Content Container */
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes content to the bottom over the blur */
+    padding: 5% 10%;
+    padding-bottom: 8%; /* Safe area below text */
+}
+
+/* Text Theming depending on background */
+.light-text-container {
+    color: var(--text-dark);
+}
+
+.dark-text-container {
+    color: var(--text-light);
+}
+
+.light-text-container .title {
+    color: var(--accent-color);
+}
+
+.dark-text-container .title {
+    color: var(--secondary-color);
+}
+
+/* Intro Section */
+.intro-content .heading {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.intro-content .subheading {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    max-width: 600px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.scroll-instruction {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+}
+
+.scroll-instruction .line {
+    width: 100px;
+    height: 1px;
+    background-color: var(--secondary-color);
+}
+
+/* Inner Layouts */
+.split-drawer {
+    align-items: flex-start;
+}
+
+.text-container {
+    max-width: 550px;
+}
+
+.text-container.align-right {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+}
+
+.description p {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+/* Center Layout (Lifestyle/Contact) */
+.center-drawer {
+    /* Center the flex content vertically */
+    justify-content: center; 
+    /* Make the container stick to the right side of the screen */
+    align-items: flex-end; 
+    text-align: center;    /* Keeps text centered within its right-aligned block */
+}
+
+/* Let's Connect specific container */
+.center-drawer .social-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center the items horizontally within this block */
+    max-width: 320px;     /* Smaller restricted width */
+}
+
+/* Social Buttons */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    width: 100%;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    /* Made padding smaller */
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    /* Made font size smaller */
+    font-size: 0.85rem;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.social-btn i {
+    /* Smaller icon size */
+    font-size: 1.1rem;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.social-btn.whatsapp { background-color: var(--whatsapp); }
+.social-btn.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.social-btn.linkedin { background-color: var(--linkedin); }
+
+/* Adjust images on tablets and mobile so face isn't cut off */
+@media (max-width: 1024px) {
+    .bg-panel-2 {
+        /* Pin the right edge of the image exactly to the right edge of the screen */
+        background-position: right 30% !important;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .content {
+        padding: 8%;
+        padding-bottom: 10%;
+    }
+    
+    .blur-overlay {
+        height: 70%; /* Need more blur height on mobile since text stacks taller */
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+    }
+    
+    .social-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
