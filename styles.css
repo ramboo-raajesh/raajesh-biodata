@@ -310,21 +310,60 @@ p {
 @media (max-width: 768px) {
     /* Swap to the dedicated mobile-cropped images provided by the user */
     .bg-panel-1 {
-        background-image: url('assets/biodata_intro_mobile.jpg');
+        background-image: url('assets/biodata_intro_mobile.png') !important;
         background-position: center center !important;
     }
     .bg-panel-2 {
-        background-image: url('assets/biodata_about_mobile.jpg');
+        background-image: url('assets/biodata_about_mobile.png') !important;
         background-position: center center !important;
     }
     .bg-panel-3 {
-        background-image: url('assets/biodata_lifestyle_mobile.jpg');
+        background-image: url('assets/biodata_lifestyle_mobile.jpg') !important;
         background-position: center center !important;
     }
 
     .content {
         padding: 8%;
         padding-bottom: 10%;
+    }
+
+    /* 
+       Mobile Layout Text Repositioning
+       Based on the mobile-specific portraits:
+       Photo 1: User is left -> Text should push right
+       Photo 2: User is left -> Text should push right
+       Photo 3: User is right -> Text should push left
+    */
+
+    /* Panel 1 */
+    .intro-content {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    /* Panel 2 */
+    .split-drawer {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    /* Panel 3 */
+    .center-drawer {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .center-drawer .social-wrapper {
+        align-items: flex-start; /* Push contact buttons to the left */
+        text-align: left;
+    }
+
+    .social-btn {
+        justify-content: flex-start; /* Align text inside buttons */
+    }
+
+    .intro-content .heading, .split-drawer .title, .center-drawer .title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
     }
     
     .blur-overlay {
