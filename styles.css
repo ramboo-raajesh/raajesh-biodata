@@ -308,6 +308,20 @@ p {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
+    /* Swap to the dedicated mobile-cropped images provided by the user */
+    .bg-panel-1 {
+        background-image: url('assets/biodata_intro_mobile.jpg');
+        background-position: center center !important;
+    }
+    .bg-panel-2 {
+        background-image: url('assets/biodata_about_mobile.jpg');
+        background-position: center center !important;
+    }
+    .bg-panel-3 {
+        background-image: url('assets/biodata_lifestyle_mobile.jpg');
+        background-position: center center !important;
+    }
+
     .content {
         padding: 8%;
         padding-bottom: 10%;
