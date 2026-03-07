@@ -127,4 +127,18 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         }
     });
+
+    // --- Fullscreen Mode on Mobile ---
+    // Hide status bar and navigation bar upon first user interaction
+    const enterFullscreen = () => {
+        if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen().catch((err) => {
+                console.log(`Fullscreen error: ${err.message}`);
+            });
+        }
+    };
+
+    // Attach to first interaction since browsers block auto-fullscreen
+    document.addEventListener('click', enterFullscreen, { once: true });
+    document.addEventListener('touchstart', enterFullscreen, { once: true });
 });
