@@ -4,56 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Raajesh's Biodata</title>
-    
+    <title>Raajesh — The Biodata That Scrolls</title>
+    <meta name="description" content="Get to know Raajesh — a spirited soul from Mayiladuthurai with big dreams and an even bigger heart.">
+
     <!-- Fullscreen Web App Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#141414">
-    
+    <meta name="theme-color" content="#0a0a0f">
+
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Panel 1: Intro (Sunset Boat) -->
-    <section class="panel drawer-panel" id="panel-1">
+    <!-- Floating Particles Container -->
+    <div id="particles-container" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PANEL 1 : Hero Intro (Sunset Boat)         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="panel drawer-panel" id="panel-hero">
         <div class="img-container">
-            <div class="background-image bg-panel-1"></div>
+            <div class="background-image bg-hero"></div>
         </div>
         <div class="blur-overlay dark"></div>
         <div class="content intro-content dark-text-container">
-            <!-- Using standard dummy name, user will swap to real name -->
-            <h1 class="heading" aria-label="First Name">Hey, I'm Raajesh</h1>
-            <p class="subheading">Navigating life with a calm sunset vibe. Looking for my permanent co-captain.</p>
+            <h1 class="heading" aria-label="Name">Hey, I'm Raajesh</h1>
+            <p class="subheading">Navigating life with a calm sunset vibe. Wondering who's brave enough to keep up.</p>
             <div class="scroll-instruction">
-                <p>Scroll down</p>
+                <p>Scroll to know me</p>
                 <div class="line"></div>
             </div>
         </div>
     </section>
 
-    <!-- Panel 2: About Me (Plaid Shirt) -->
-    <section class="panel drawer-panel" id="panel-2">
-        <div class="img-container">
-            <div class="background-image bg-panel-2"></div>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- QUOTE 1 : Flirty Interlude                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="quote-section" id="quote-1">
+        <div class="quote-bg"></div>
+        <div class="quote-content">
+            <span class="quote-icon">😏</span>
+            <p class="quote-text">They say the best stories begin when you least expect them&hellip;<br><em>so I built a whole website just to speed things up.</em></p>
         </div>
-        <!-- Medium blur so text is readable but face stays visible -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PANEL 2 : About Me (Plaid Shirt)           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="panel drawer-panel" id="panel-about">
+        <div class="img-container">
+            <div class="background-image bg-about"></div>
+        </div>
         <div class="blur-overlay dark less-blur-gradient"></div>
         <div class="content split-drawer dark-text-container">
             <div class="text-container">
                 <h2 class="title text-move-left">The Real Me</h2>
                 <div class="description text-move-right">
                     <p>I don't smoke and I don't drink. I believe the best buzz comes from deep conversations and
-                        genuine connection.</p>
+                        genuine company.</p>
                     <p>I am highly career-focused and driven during the day, but I always know how to keep things fun,
                         interesting, and peaceful when it counts.</p>
                 </div>
@@ -61,37 +77,95 @@
         </div>
     </section>
 
-    <!-- Panel 3: Lifestyle & Contact (Stadium) -->
-    <section class="panel drawer-panel" id="panel-3">
-        <div class="img-container">
-            <div class="background-image bg-panel-3"></div>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- QUOTE 2 : Flirty Interlude                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="quote-section" id="quote-2">
+        <div class="quote-bg"></div>
+        <div class="quote-content">
+            <span class="quote-icon">💫</span>
+            <p class="quote-text">Still scrolling?<br><em>Careful&hellip; this is starting to feel like we already know each other.</em></p>
         </div>
-        <!-- Minimal/No blur so stadium is transparent -->
-        <div class="blur-overlay dark minimal-blur-gradient full-height"></div>
-        <div class="content center-drawer dark-text-container">
-            <div class="social-wrapper">
-                <h2 class="title text-move-left" style="font-size: clamp(2.5rem, 5vw, 3.5rem);">Let's Connect</h2>
-                <p class="subtitle text-move-right" style="margin-bottom: 2rem; font-size: 1.1rem; text-align: center;">
-                    If you think we'd vibe, don't keep me waiting.</p>
+    </section>
 
-                <div class="social-buttons text-move-up">
-                    <!-- WhatsApp: Opens chat with pre-filled message -->
-                    <a href="https://wa.me/919566874940?text=Hey!%20I%20saw%20your%20biodata...%20and%20honestly,%20I'm%20intrigued.%20%F0%9F%98%89"
-                        class="social-btn whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                    </a>
-
-                    <!-- Instagram -->
-                    <a href="https://instagram.com/ramboo_raajesh" class="social-btn instagram" target="_blank">
-                        <i class="fab fa-instagram"></i> Slide into DMs
-                    </a>
-
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/raajeshn/" class="social-btn linkedin" target="_blank">
-                        <i class="fab fa-linkedin-in"></i> Let's be professional
-                    </a>
-                </div>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION 3 : Professional Story + LinkedIn  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="story-section" id="section-professional">
+        <div class="story-gradient-bg professional-bg"></div>
+        <div class="story-content">
+            <div class="story-label"><span class="label-line"></span>Chapter&thinsp;—&thinsp;Career<span class="label-line"></span></div>
+            <h2 class="story-title">What I Do</h2>
+            <div class="story-body">
+                <p>When I'm not daydreaming about my next big idea, I'm busy building things, solving problems, and
+                    chasing ambitions that keep me up at night&nbsp;— the good kind.</p>
+                <p>I pour my passion into my craft, constantly learning, growing, and pushing boundaries. The drive to
+                    create something meaningful runs deep in my veins.</p>
             </div>
+            <a href="https://www.linkedin.com/in/raajeshn/" class="story-cta linkedin-cta" target="_blank" id="linkedin-btn">
+                <i class="fab fa-linkedin-in"></i>
+                <span>See the full story on LinkedIn</span>
+                <i class="fas fa-arrow-right cta-arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- QUOTE 3 : Flirty Interlude                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="quote-section" id="quote-3">
+        <div class="quote-bg"></div>
+        <div class="quote-content">
+            <span class="quote-icon">✨</span>
+            <p class="quote-text">If you've made it this far,<br><em>I think the universe is trying to tell you something.</em></p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION 4 : Personal Story (Mayiladuthurai)-->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="story-section" id="section-personal">
+        <div class="story-gradient-bg personal-bg"></div>
+        <div class="story-content">
+            <div class="story-label"><span class="label-line"></span>Chapter&thinsp;—&thinsp;Origins<span class="label-line"></span></div>
+            <h2 class="story-title">Where It All Began</h2>
+            <div class="story-body">
+                <p>A spirited soul born and raised in the sun-kissed town of
+                    <strong>Mayiladuthurai</strong>&nbsp;— a small-town dreamer with an enormous appetite for life.
+                </p>
+                <p>Brimming with boundless energy, an insatiably curious mind, and a sense of humour so infectious it
+                    should come with a warning label.</p>
+                <p>Now this adventurous heart is on a quest&nbsp;— not for treasure, but for <em>someone
+                        extraordinary</em>. Someone who matches his wavelength, vibes with his beautiful madness, and
+                    turns everyday moments into stories worth telling forever.</p>
+            </div>
+            <div class="story-buttons">
+                <a href="https://www.instagram.com/ramboo_raajesh/" class="story-cta instagram-cta" target="_blank" id="instagram-btn">
+                    <i class="fab fa-instagram"></i>
+                    <span>The life behind the story</span>
+                    <i class="fas fa-arrow-right cta-arrow"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION 5 : Final CTA — WhatsApp           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="cta-section" id="section-cta">
+        <div class="cta-gradient-bg"></div>
+        <div class="cta-content">
+            <span class="cta-emoji">😄</span>
+            <h2 class="cta-title">You Actually Read All That?</h2>
+            <p class="cta-subtitle">Wow. That's basically a commitment in internet years.<br>Now I'm genuinely curious
+                about the person behind those scrolling fingers.</p>
+            <p class="cta-hook">Don't overthink it&nbsp;— just tap below and say <strong>'Hi'</strong>.<br>I promise I
+                won't screenshot it. <em>&hellip;probably.</em>&nbsp;😉</p>
+            <a href="https://wa.me/919566874940?text=Hey!%20I%20just%20read%20your%20entire%20biodata...%20and%20here%20I%20am%20saying%20Hi%20%F0%9F%98%84"
+                class="cta-whatsapp-btn" target="_blank" id="whatsapp-cta">
+                <i class="fab fa-whatsapp"></i>
+                <span>Just Say Hi 👋</span>
+            </a>
         </div>
     </section>
 
@@ -100,7 +174,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Custom Script -->
-    <script src="script.js"></script>
+    <script src="script.js?v=5"></script>
 </body>
 
 </html>
