@@ -901,6 +901,107 @@ p {
 }
 
 /* ═══════════════════════════════════════════
+   Locked Content — Hidden until name given
+   ═══════════════════════════════════════════ */
+.locked-content {
+    position: relative;
+    max-height: 220px;
+    overflow: hidden;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+    transition: max-height 1s ease, filter 0.8s ease;
+}
+
+/* Gradient fade at bottom of clipped content */
+.locked-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, #0a0a0f 0%, transparent 100%);
+    z-index: 50;
+    pointer-events: none;
+}
+
+.locked-content.unlocked {
+    max-height: 5000px;
+    overflow: visible;
+    filter: none;
+    -webkit-filter: none;
+    pointer-events: auto;
+    user-select: auto;
+}
+
+.locked-content.unlocked::after {
+    display: none;
+}
+
+.locked-overlay {
+    position: sticky;
+    top: 40%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* Pinging heart */
+.locked-heart {
+    font-size: 1.8rem;
+    color: #e74c6f;
+    position: relative;
+    filter: drop-shadow(0 0 12px rgba(231, 76, 111, 0.5));
+}
+
+.locked-heart::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(231, 76, 111, 0.4);
+    animation: heartPing 1.5s ease-out infinite;
+}
+
+@keyframes heartPing {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+        border-color: rgba(231, 76, 111, 0.6);
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+        border-color: rgba(231, 76, 111, 0);
+    }
+}
+
+.locked-overlay p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 300px;
+}
+
+.locked-overlay.hidden {
+    display: none;
+}
+
+/* Married section gradient */
+.story-gradient-bg.married-bg {
+    background: linear-gradient(160deg, #0a0a0f 0%, #1a0f10 30%, #1c1015 55%, #0a0a0f 100%);
+}
+
+/* ═══════════════════════════════════════════
    Final CTA Section — WhatsApp
    ═══════════════════════════════════════════ */
 .cta-section {
