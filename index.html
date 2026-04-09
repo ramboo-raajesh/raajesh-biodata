@@ -15,7 +15,7 @@
 
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=7">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
@@ -26,6 +26,39 @@
 
     <!-- Floating Particles Container -->
     <div id="particles-container" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- AUTH OVERLAY — Login / Signup Screen        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div id="auth-overlay">
+        <div class="auth-bg"></div>
+        <div id="auth-stars" class="auth-stars" aria-hidden="true"></div>
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">✦</div>
+                <h2 class="auth-title" id="auth-title">Unlock My Story</h2>
+                <p class="auth-subtitle" id="auth-subtitle">Create an account to read the full story</p>
+            </div>
+            <form id="auth-form" autocomplete="off">
+                <div class="auth-input-group">
+                    <input type="text" id="auth-userid" placeholder="Choose a username" required autocomplete="off" minlength="3">
+                    <i class="fas fa-user auth-input-icon"></i>
+                </div>
+                <div class="auth-input-group">
+                    <input type="password" id="auth-password" placeholder="Set a password" required autocomplete="new-password" minlength="4">
+                    <i class="fas fa-lock auth-input-icon"></i>
+                </div>
+                <div id="auth-message" class="auth-message"></div>
+                <button type="submit" id="auth-submit-btn" class="auth-submit-btn">
+                    <span id="auth-btn-text">Create Account &amp; Enter</span>
+                    <div class="auth-spinner" id="auth-spinner"></div>
+                </button>
+            </form>
+            <p class="auth-toggle-text" id="auth-toggle-text">
+                Already been here? <a href="#" id="auth-toggle-link">Sign In</a>
+            </p>
+        </div>
+    </div>
 
     <!-- ═══════════════════════════════════════════ -->
     <!-- PANEL 1 : Hero Intro (Sunset Boat)         -->
@@ -51,7 +84,6 @@
     <section class="quote-section" id="quote-1">
         <div class="quote-bg"></div>
         <div class="quote-content">
-            <span class="quote-icon">😏</span>
             <p class="quote-text">They say the best stories begin when you least expect them&hellip;<br><em>so I built a whole website just to speed things up.</em></p>
         </div>
     </section>
@@ -83,7 +115,6 @@
     <section class="quote-section" id="quote-2">
         <div class="quote-bg"></div>
         <div class="quote-content">
-            <span class="quote-icon">💫</span>
             <p class="quote-text">Still scrolling?<br><em>Careful&hellip; this is starting to feel like we already know each other.</em></p>
         </div>
     </section>
@@ -97,10 +128,10 @@
             <div class="story-label"><span class="label-line"></span>Chapter&thinsp;—&thinsp;Career<span class="label-line"></span></div>
             <h2 class="story-title">What I Do</h2>
             <div class="story-body">
-                <p>When I'm not daydreaming about my next big idea, I'm busy building things, solving problems, and
-                    chasing ambitions that keep me up at night&nbsp;— the good kind.</p>
-                <p>I pour my passion into my craft, constantly learning, growing, and pushing boundaries. The drive to
-                    create something meaningful runs deep in my veins.</p>
+                <p>By day, I build things that (hopefully) don't break. By night, I dream up ideas that
+                    definitely should. Somewhere in between, I survive on caffeine and curiosity.</p>
+                <p>I take my work seriously but never myself. Building, breaking, fixing, repeat
+                    &nbsp;— it's a beautiful mess and I wouldn't trade it for anything.</p>
             </div>
             <a href="https://www.linkedin.com/in/raajeshn/" class="story-cta linkedin-cta" target="_blank" id="linkedin-btn">
                 <i class="fab fa-linkedin-in"></i>
@@ -116,7 +147,6 @@
     <section class="quote-section" id="quote-3">
         <div class="quote-bg"></div>
         <div class="quote-content">
-            <span class="quote-icon">✨</span>
             <p class="quote-text">If you've made it this far,<br><em>I think the universe is trying to tell you something.</em></p>
         </div>
     </section>
@@ -150,21 +180,44 @@
     </section>
 
     <!-- ═══════════════════════════════════════════ -->
-    <!-- SECTION 5 : Final CTA — WhatsApp           -->
+    <!-- SECTION 5 : Name Collection                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="story-section" id="section-name">
+        <div class="story-gradient-bg name-bg"></div>
+        <div class="story-content name-content">
+            <div class="story-label"><span class="label-line"></span>Almost&thinsp;There<span class="label-line"></span></div>
+            <h2 class="story-title">One Last Thing...</h2>
+            <div class="story-body">
+                <p>You've read my whole story. Only fair I get to know who's behind those curious eyes, right?</p>
+            </div>
+            <form id="name-form" class="name-form" autocomplete="off">
+                <div class="name-input-wrapper">
+                    <input type="text" id="visitor-name" placeholder="What should I call you?" required minlength="2">
+                </div>
+                <button type="submit" id="name-submit-btn" class="name-submit-btn">
+                    <span id="name-btn-text">That's Me</span>
+                    <div class="auth-spinner" id="name-spinner"></div>
+                </button>
+            </form>
+            <p id="name-saved-msg" class="name-saved-msg"></p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SECTION 6 : Final CTA — WhatsApp           -->
     <!-- ═══════════════════════════════════════════ -->
     <section class="cta-section" id="section-cta">
         <div class="cta-gradient-bg"></div>
         <div class="cta-content">
-            <span class="cta-emoji">😄</span>
             <h2 class="cta-title">You Actually Read All That?</h2>
-            <p class="cta-subtitle">Wow. That's basically a commitment in internet years.<br>Now I'm genuinely curious
+            <p class="cta-subtitle">That's basically a commitment in internet years.<br>Now I'm genuinely curious
                 about the person behind those scrolling fingers.</p>
             <p class="cta-hook">Don't overthink it&nbsp;— just tap below and say <strong>'Hi'</strong>.<br>I promise I
-                won't screenshot it. <em>&hellip;probably.</em>&nbsp;😉</p>
-            <a href="https://wa.me/919566874940?text=Hey!%20I%20just%20read%20your%20entire%20biodata...%20and%20here%20I%20am%20saying%20Hi%20%F0%9F%98%84"
+                won't screenshot it. <em>&hellip;probably.</em></p>
+            <a href="https://wa.me/919566874940?text=Hey%20Raajesh!%20Just%20read%20your%20entire%20biodata%20and%20had%20to%20say%20hi"
                 class="cta-whatsapp-btn" target="_blank" id="whatsapp-cta">
                 <i class="fab fa-whatsapp"></i>
-                <span>Just Say Hi 👋</span>
+                <span>Just Say Hi</span>
             </a>
         </div>
     </section>
@@ -174,7 +227,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Custom Script -->
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=7"></script>
 </body>
 
 </html>
