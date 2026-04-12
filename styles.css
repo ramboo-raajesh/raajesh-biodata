@@ -121,13 +121,18 @@ p {
     position: absolute;
     inset: 0;
     background: radial-gradient(ellipse at 25% 75%, rgba(212, 168, 83, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 75% 25%, rgba(196, 135, 90, 0.04) 0%, transparent 50%);
+        radial-gradient(ellipse at 75% 25%, rgba(196, 135, 90, 0.04) 0%, transparent 50%);
     animation: auth-glow 6s ease-in-out infinite alternate;
 }
 
 @keyframes auth-glow {
-    0% { opacity: 0.5; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Twinkling stars */
@@ -148,8 +153,15 @@ p {
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.15; transform: scale(0.8); }
-    100% { opacity: 0.8; transform: scale(1.3); }
+    0% {
+        opacity: 0.15;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: scale(1.3);
+    }
 }
 
 /* Auth Card — Glassmorphism */
@@ -165,7 +177,7 @@ p {
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5),
-                0 0 100px rgba(212, 168, 83, 0.03);
+        0 0 100px rgba(212, 168, 83, 0.03);
     opacity: 0;
     transform: translateY(30px) scale(0.96);
 }
@@ -196,9 +208,9 @@ p {
     font-size: 0.85rem;
     color: var(--text-muted);
     font-weight: 300;
-}
+}/* Input Fields */
 
-/* Input Fields */
+
 .auth-input-group {
     position: relative;
     margin-bottom: 1.2rem;
@@ -238,7 +250,7 @@ p {
     pointer-events: none;
 }
 
-.auth-input-group input:focus ~ .auth-input-icon {
+.auth-input-group input:focus~.auth-input-icon {
     color: var(--accent-gold);
 }
 
@@ -306,7 +318,7 @@ p {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
     transform: rotate(45deg) translateX(-100%);
     transition: transform 0.6s ease;
 }
@@ -327,7 +339,9 @@ p {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Toggle text */
@@ -351,11 +365,27 @@ p {
 
 /* Shake animation for errors */
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-8px); }
-    40% { transform: translateX(8px); }
-    60% { transform: translateX(-5px); }
-    80% { transform: translateX(5px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
 }
 
 .auth-card.shake {
@@ -977,6 +1007,7 @@ p {
         opacity: 1;
         border-color: rgba(231, 76, 111, 0.6);
     }
+
     100% {
         transform: scale(2);
         opacity: 0;
@@ -1158,7 +1189,6 @@ p {
    Mobile Media Query
    ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
-
     /* Mobile-specific images */
     .bg-hero {
         background-image: url('assets/biodata_intro_mobile.png') !important;
@@ -1229,6 +1259,18 @@ p {
         font-size: 0.95rem;
         padding: 1rem 2rem;
     }
+    
+    .lang-toggle {
+        bottom: 20px;
+        right: 20px;
+        height: 50px;
+        min-width: 100px;
+        padding: 0 1.2rem;
+    }
+    
+    .lang-label {
+        font-size: 0.8rem;
+    }
 }
 
 /* ═══════════════════════════════════════════
@@ -1251,4 +1293,86 @@ p {
     .cta-hook {
         font-size: 0.95rem;
     }
+}
+
+/* ═══════════════════════════════════════════
+   Language Toggle Styles (Liquid Oval)
+   ═══════════════════════════════════════════ */
+.lang-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 0 1.6rem;
+    height: 55px;
+    min-width: 120px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 168, 83, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 14px rgba(255, 255, 255, 0.05);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.9);
+    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+
+/* Liquid reflection line inside */
+.lang-toggle::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg) translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.lang-toggle.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.lang-toggle:hover {
+    background: linear-gradient(135deg, rgba(212, 168, 83, 0.15), rgba(212, 168, 83, 0.05));
+    border-color: var(--accent-gold);
+    box-shadow: 0 12px 40px rgba(212, 168, 83, 0.25), inset 0 0 20px rgba(212, 168, 83, 0.1);
+}
+
+.lang-toggle:hover::before {
+    transform: rotate(45deg) translateX(100%);
+}
+
+.lang-toggle:active {
+    transform: scale(0.92);
+}
+
+/* Liquid press animation on click */
+.lang-toggle.liquid-active {
+    animation: liquid-splash 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes liquid-splash {
+    0% { transform: scale(1); border-radius: 40px; }
+    20% { transform: scale(0.85) scaleX(1.15); border-radius: 50px 30px 50px 30px / 40px 60px 40px 60px; }
+    40% { transform: scale(1.1) scaleX(0.9); border-radius: 30px 50px 30px 50px / 60px 40px 60px 40px; }
+    60% { transform: scale(0.95) scaleX(1.05); border-radius: 45px 35px 45px 35px / 35px 45px 35px 45px; }
+    100% { transform: scale(1); border-radius: 40px; }
+}
+
+.lang-label {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }

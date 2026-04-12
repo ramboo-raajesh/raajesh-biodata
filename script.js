@@ -366,6 +366,9 @@ function sendAnalytics() {
 // (All scroll/animation code lives here)
 // ═══════════════════════════════════════════
 function initBiodata() {
+    
+    // Initialize language toggle
+    initLanguageToggle();
 
     // ─── ANALYTICS: Scroll depth tracker ────
     window.addEventListener('scroll', () => {
@@ -800,4 +803,150 @@ function initBiodata() {
 
     document.addEventListener('click', enterFullscreen, { once: true });
     document.addEventListener('touchstart', enterFullscreen, { once: true });
+}
+// ═══════════════════════════════════════════
+// LANGUAGE TOGGLE SYSTEM (EN / TEN)
+// ═══════════════════════════════════════════
+const translations = {
+    EN: {
+        hero_heading: "Hey, I'm Raajesh",
+        hero_sub: "Navigating life with a calm sunset vibe... searching for someone brave and beautiful enough to ride along.",
+        hero_scroll: "Scroll to know my story",
+        quote1: "Some stories begin when you least expect them... <br><em>maybe ours could be one of them.</em>",
+        about_title: "The Real Me",
+        about_p1: "I don't smoke and I don't drink. My best buzz comes from deep conversations and genuine company.",
+        about_p2: "I'm career-focused during the day, but I'm not glued to my laptop. With the right company, I know how to make moments fun, interesting, and a little bit special. 😉",
+        quote2: "Still scrolling?<br><em>Careful&hellip; this is starting to feel like we already know each other.</em>",
+        career_title: "What I Do",
+        career_p1: "I'm a total tech guy — mostly coding and brainstorming with AIs in my free time. When boredom strikes, I grab my bike and head out for a tea break. 😅",
+        career_p2: "At the office, I work closely with AI automation projects — especially eKYC and AML process automations. &mdash; But my interests go beyond that — I'm also into US capital markets, corporate taxes, and investment advisory.",
+        career_cta: "See the full career story on LinkedIn",
+        quote3: "If you've made it this far,<br><em>I think the universe is trying to tell you something.</em>",
+        origins_title: "Where It All Began",
+        origins_p1: "A spirited soul born and raised in the sun-kissed town of <strong>Mayiladuthurai</strong> &mdash; a small-town dreamer with an enormous appetite for life.",
+        origins_p2: "Brimming with boundless energy and an insatiably curious mind. My humour? That's a whole different level &mdash; some jokes are dark, some might make you mad, but mostly I'll have you laughing non-stop. 😉",
+        origins_p3: "This adventurous heart is on a quest &mdash; not for treasure, but for <em>someone extraordinary</em> 💫. Someone who matches my wavelength, vibes with my beautiful madness, and turns everyday moments into stories worth telling forever. ❤️",
+        origins_cta: "The life behind the story",
+        name_title: "One Last Thing...",
+        name_body: "You've shown so much interest in my story... now I'm curious too. Who's the person behind those curious eyes? 😌",
+        name_btn: "That's Me — Unlock the Rest",
+        locked_msg: "Tell me your name... there's more to this story",
+        married_title: "What if we married?",
+        freedom_title: "No Rules, Only Vibes",
+        freedom_p1: "I don't believe in putting restrictions like a 90's parent... everything is your choice.",
+        freedom_p2: "Want to study? Study. Want to work? Go for it. Got a business idea? Let's make it happen.",
+        freedom_p3: "I won't be the one who blocks your dreams... I'll be the first one to invest in them.",
+        tea_quote: "But there's just one condition...<br><em>When I ask for tea... you gotta make it for me.</em><br>That's it. That's the deal.",
+        cta_title: "You actually read all that? You're a serious case.",
+        cta_subtitle: "Spending this much time on the internet... that's basically a commitment.<br>Now I'm really curious... who is the person behind those scrolling fingers.",
+        cta_hook: "Don't overthink it — just tap below and say <strong>'Hi'</strong> 😉<br>I won't screenshot it... <em>I won't tell anyone 🤞</em>",
+        cta_btn: "Just Say Hi"
+    },
+    TEN: {
+        hero_heading: "Hey, naan Raajesh",
+        hero_sub: "Life ah calm sunset vibe la navigate panren… aana adha en kooda senthu handle pandra brave and beauty thedren...",
+        hero_scroll: "Scroll pannunga… ennoda kathaya kekalaam",
+        quote1: "Sila kadhai ellam unexpected ah dhaan start aagum… <br><em>namma kathayum maybe one of them ah irukalam</em>",
+        about_title: "The Real Me",
+        about_p1: "Naan smoke um panna maaten, drink um panna maaten… enakku best buzz na deep conversations um, genuine company dhaan 😌",
+        about_p2: "Career mela focus iruken… aana laptop ah kattikitu iruka maaten 😄… right company irundha, moments ah fun ah, interesting ah… konjam special ah maathiduvein 😉",
+        quote2: "Still scroll pandriya?<br><em>Careful&hellip; this is starting to feel like we already know each other.</em>",
+        career_title: "What I Do",
+        career_p1: "I'm totally a tech guy... mostly codings, brainstrom with AIs thaan free timela irukum... athuvum bore adicha bikeah eduthutu tea kudika poiduvan 😅",
+        career_p2: "In office I closely work with AI automation projects athulayum eKYC aprom AML process automations... &mdash; ennathaan automations la interest irunthalum... US Captial market, corporate taxes aprom investment adviselaam kooda nalla pannuvan.",
+        career_cta: "See the full career story on LinkedIn",
+        quote3: "If you've made it this far,<br><em>I think the universe is trying to tell you something.</em>",
+        origins_title: "Where It All Began",
+        origins_p1: "A spirited soul born and raised in the sun-kissed town of <strong>Mayiladuthurai</strong> &mdash; a small-town dreamer with an enormous appetite for life.",
+        origins_p2: "Brimming with boundless energy ah iruken… curiosity level romba over 😌… humour ah? adhu vera level… naan bayangarama joke adipan… sila jokes dark ah irukum 😅… sila jokes kovam varum… but mostly sirika vechiduven 😉",
+        origins_p3: "Ipdi oru konjam loose ah irukum adventurous heart… ipo oru quest la iruku — treasure kaaga illa… <em>oru special someone kaaga</em> 💫… en wavelength match aaganum… en beautiful madness ah handle panna theriyanum 😌… daily life ah kooda namma rendu perum serndha story aakidalam… lifetime ah sollitu iruka maari ❤️",
+        origins_cta: "The life behind the story",
+        name_title: "One Last Thing...",
+        name_body: "En story la ivlo interest kaamikreenga… ippo naanum konjam interest kaamikalama? 😉… andha curious eyes pinnadi irukura person yaar nu therinjikanum 😌",
+        name_btn: "That's Me and balance unlock panu",
+        locked_msg: "Unga name sollunga... approm innum nalla story iruku",
+        married_title: "What if we married?",
+        freedom_title: "No Rules, Only Vibes",
+        freedom_p1: "Enaku 90's kid maathiri restriction la poda pudikathu... full of unoda choice thaan.",
+        freedom_p2: "Padikanuma? Padi. Velaiku ponuma? Po. Any business idea tharlama? Panu.",
+        freedom_p3: "Unoda dreams ku naan thadai podra aala illa... un dreams ku naan muthal invest pannura aalu.",
+        tea_quote: "But oru condition mattum iruku...<br><em>Na tea ketta... nee pottu kudukanum.</em><br>That's it. That's the deal.",
+        cta_title: "Idhellam full ah padicha neenga serious case",
+        cta_subtitle: "Internet la ivlo neram spend pannina... idhu almost commitment dhaan<br>Ippo enakku romba curiosity... andha scrolling fingers pinnadi irukura person yaar nu.",
+        cta_hook: "Overthink panna vendam — just keela tap panni <strong>'Hi'</strong> nu sollu 😉<br>Naan screenshot edukka maaten... <em>yaarkitayum solla maatan 🤞</em>",
+        cta_btn: "Just Say Hi"
+    }
+};
+
+let currentLang = 'EN'; // Default language
+
+function applyLanguage(lang) {
+    const texts = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (texts[key]) {
+            el.innerHTML = texts[key];
+        }
+    });
+    
+    // Apply placeholders
+    const namePlaceholderMatch = lang === 'EN' ? "What should I call you?" : "What should I call you? unga name";
+    const nameInput = document.getElementById('visitor-name');
+    if (nameInput) nameInput.placeholder = namePlaceholderMatch;
+
+    // Refresh ScrollTrigger to account for text height changes
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 100);
+}
+
+function initLanguageToggle() {
+    const toggleBtn = document.getElementById('lang-toggle');
+    if (!toggleBtn) return;
+    
+    const langLabel = toggleBtn.querySelector('.lang-label');
+    
+    // Initially apply default language (EN)
+    applyLanguage(currentLang);
+    langLabel.textContent = currentLang === 'EN' ? 'Tanglish' : 'English';
+    
+    toggleBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'EN' ? 'TEN' : 'EN';
+        
+        // Liquid glass press animation
+        toggleBtn.classList.remove('liquid-active');
+        void toggleBtn.offsetWidth; // trigger reflow
+        toggleBtn.classList.add('liquid-active');
+        
+        // Switch text smoothly
+        gsap.to('[data-i18n]', {
+            opacity: 0,
+            y: 5,
+            duration: 0.2,
+            stagger: 0.01,
+            onComplete: () => {
+                applyLanguage(currentLang);
+                langLabel.textContent = currentLang === 'EN' ? 'Tanglish' : 'English';
+                gsap.to('[data-i18n]', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.3,
+                    stagger: 0.01,
+                    ease: "power2.out"
+                });
+            }
+        });
+    });
+
+    // Make the button floating and appear from panel 2 (About) onwards
+    const aboutPanel = document.getElementById('panel-about');
+    
+    if (aboutPanel) {
+        ScrollTrigger.create({
+            trigger: aboutPanel,
+            start: "top center", // Appears when About section hits middle of screen
+            onEnter: () => toggleBtn.classList.add('visible'),
+            onLeaveBack: () => toggleBtn.classList.remove('visible')
+        });
+    }
 }
